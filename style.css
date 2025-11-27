@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
+
+
 body {
     font-family: "Roboto Mono", monospace;
     line-height: 1.6;
