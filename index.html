@@ -164,10 +164,27 @@
     <div class="snowflake">❅</div>
     <div class="snowflake">❆</div>
 
+    <div id="cart-overlay" class="cart-overlay hidden"></div>
+
+    <div id="cart-panel" class="cart-panel">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+
+        <div class="cart-total">
+            Total: £<span id="cart-total-price">0.00</span>
+        </div>
+        <button id="checkout-btn" class="checkout">Place Order</button>
+        <button id="close-cart">Close</button>
+    </div>
+
+
     <footer>
         <p>&copy; 2022 LeEu Pizza & Coffee. All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
+    <form id="order-form" action="https://formsubmit.co/leedouglas7@gmail.com" method="POST">
+        <input type="hidden" name="order" id="order-data">
+    </form>
 </body>
 
 </html>
