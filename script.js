@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
     // ----- CART SYSTEM -----
     let cart = JSON.parse(localStorage.getItem("cart")) || {};
 
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateCartCount();
 
+
     // --- CART PANEL OPEN/CLOSE ---
     const cartIcon = document.querySelector(".cart");
     const cartPanel = document.getElementById("cart-panel");
@@ -78,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cartPanel.classList.remove("show");
         cartOverlay.classList.add("hidden");
     }
+
 
     // --- RENDER CART ITEMS ---
     function renderCart() {
@@ -112,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
     // --- CHECKOUT BUTTON (EMAIL ORDER) ---
     const checkoutBtn = document.getElementById("checkout-btn");
 
@@ -120,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const customerName = document.getElementById("customer-name").value.trim();
         const customerEmail = document.getElementById("customer-email").value.trim();
 
-        if (customerName === "" || customerEmail === "") {
+        if (!customerName || !customerEmail) {
             alert("Please enter your name and email.");
             return;
         }
@@ -142,16 +146,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
         message += `\nTOTAL: £${total.toFixed(2)}\n`;
 
-        // Put order into hidden form
         document.getElementById("order-data").value = message;
 
-        // Submit form
         document.getElementById("order-form").submit();
 
-        // Clear cart
         cart = {};
         localStorage.removeItem("cart");
         updateCartCount();
         closeCart();
     });
-});
+
+
+    // --- PREMIUM SNOW GENERATOR ---
+    const snowContainer = document.createElement("div");
+    document.body.appendChild(snowContainer);
+
+    function createSnowflake() {
+        const snow = document.createElement("div");
+        snow.classList.add("snowflake");
+        snow.innerText = "❄";
+
+        snow.style.left = Math.random() * 100 + "%";
+
+        const size = Math.random() * 14 + 8;
+        snow.style.fontSize = size + "px";
+
+        const fallDuration = Math.random() * 8 + 7;
+        snow.style.animationDuration = `${fallDuration}s, 6s, 8s`;
+
+        snow.style.opacity = Math.random() * 0.6 + 0.4;
+
+        snowContainer.appendChild(snow);
+
+        setTimeout(() => snow.remove(), fallDuration * 1000);
+    }
+
+    setInterval(createSnowflake, 180);
+
+}); // END DOMContentLoaded

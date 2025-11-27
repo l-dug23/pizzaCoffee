@@ -201,178 +201,6 @@ footer {
 }
 
 
-/* Remove number input arrows */
-.qty-input::-webkit-outer-spin-button,
-.qty-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-
-
-/* --- Snow Animation --- */
-.snowflake {
-    position: fixed;
-
-    .qty-input::-webkit-outer-spin-button,
-    .qty-input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-}
-
-
-
-
-/* --- Snow Animation --- */
-.snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    font-size: 1em;
-    opacity: 0.8;
-    z-index: 9999;
-    pointer-events: none;
-    animation: fall linear infinite;
-}
-
-/* Combined falling + drifting + spinning */
-@keyframes fall {
-    0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(100vh) translateX(30px) rotate(360deg);
-        opacity: 0.5;
-    }
-}
-
-/* --- Random variations --- */
-
-/* Speed variation */
-.snowflake:nth-child(odd) {
-    animation-duration: 6s;
-}
-
-.snowflake:nth-child(even) {
-    animation-duration: 4s;
-}
-
-/* Random delays */
-.snowflake:nth-child(3n) {
-    animation-delay: 1s;
-}
-
-.snowflake:nth-child(4n) {
-    animation-delay: 2s;
-}
-
-.snowflake:nth-child(5n) {
-    animation-delay: 3s;
-}
-
-/* Random positions and sizes */
-.snowflake:nth-child(1) {
-    left: 5%;
-    font-size: 10px;
-}
-
-.snowflake:nth-child(2) {
-    left: 12%;
-    font-size: 14px;
-}
-
-.snowflake:nth-child(3) {
-    left: 18%;
-    font-size: 8px;
-}
-
-.snowflake:nth-child(4) {
-    left: 25%;
-    font-size: 12px;
-}
-
-.snowflake:nth-child(5) {
-    left: 30%;
-    font-size: 9px;
-}
-
-.snowflake:nth-child(6) {
-    left: 35%;
-    font-size: 11px;
-}
-
-.snowflake:nth-child(7) {
-    left: 42%;
-    font-size: 10px;
-}
-
-.snowflake:nth-child(8) {
-    left: 50%;
-    font-size: 13px;
-}
-
-.snowflake:nth-child(9) {
-    left: 55%;
-    font-size: 12px;
-}
-
-.snowflake:nth-child(10) {
-    left: 60%;
-    font-size: 9px;
-}
-
-.snowflake:nth-child(11) {
-    left: 65%;
-    font-size: 10px;
-}
-
-.snowflake:nth-child(12) {
-    left: 70%;
-    font-size: 14px;
-}
-
-.snowflake:nth-child(13) {
-    left: 75%;
-    font-size: 8px;
-}
-
-.snowflake:nth-child(14) {
-    left: 80%;
-    font-size: 12px;
-}
-
-.snowflake:nth-child(15) {
-    left: 85%;
-    font-size: 9px;
-}
-
-.snowflake:nth-child(16) {
-    left: 90%;
-    font-size: 11px;
-}
-
-.snowflake:nth-child(17) {
-    left: 95%;
-    font-size: 13px;
-}
-
-.snowflake:nth-child(18) {
-    left: 2%;
-    font-size: 10px;
-}
-
-.snowflake:nth-child(19) {
-    left: 8%;
-    font-size: 12px;
-}
-
-.snowflake:nth-child(20) {
-    left: 15%;
-    font-size: 14px;
-}
 
 .cart-panel {
     position: fixed;
@@ -443,5 +271,67 @@ footer {
     background: linear-gradient(to right, rgb(22, 91, 51), rgb(234, 70, 48));
     color: antiquewhite;
     border-radius: 5px;
-    cursor: progress;
+    cursor: pointer;
+}
+
+/* --- PREMIUM REALISTIC SNOW EFFECT --- */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    left: 0;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0.9;
+    z-index: 9999;
+    animation: snow-move linear infinite;
+}
+
+
+/* Falling */
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh);
+    }
+
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+/* Side drifting (wind) */
+@keyframes drift {
+    0% {
+        margin-left: 0;
+    }
+
+    100% {
+        margin-left: 40px;
+    }
+}
+
+/* Rotation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes snow-move {
+    0% {
+        transform: translate(-10px, -10vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(20px, 50vh) rotate(180deg);
+    }
+
+    100% {
+        transform: translate(40px, 110vh) rotate(360deg);
+        opacity: 0.4;
+    }
 }
