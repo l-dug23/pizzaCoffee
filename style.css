@@ -426,3 +426,12 @@ footer {
     border: 1px solid #aaa;
     border-radius: 6px;
 }
+
+#checkout-btn,
+#close-cart {
+    padding: 5px;
+    background: linear-gradient(to right, rgb(22, 91, 51), rgb(234, 70, 48));
+    color: antiquewhite;
+    border-radius: 5px;
+    cursor: progress;
+}
