@@ -412,3 +412,17 @@ footer {
     font-size: 0.8rem;
     border-radius: 4px;
 }
+
+.customer-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.customer-info input {
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+}

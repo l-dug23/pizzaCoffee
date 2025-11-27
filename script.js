@@ -117,7 +117,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     checkoutBtn.addEventListener("click", () => {
 
-        let message = "New Order:\n\n";
+        const customerName = document.getElementById("customer-name").value.trim();
+        const customerEmail = document.getElementById("customer-email").value.trim();
+
+        if (customerName === "" || customerEmail === "") {
+            alert("Please enter your name and email.");
+            return;
+        }
+
+        let message = `New Order from: ${customerName}\n`;
+        message += `Email: ${customerEmail}\n\n`;
+
         let total = 0;
 
         for (let item in cart) {
@@ -132,10 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         message += `\nTOTAL: £${total.toFixed(2)}\n`;
 
-        // Put order text into hidden form field
+        // Put order into hidden form
         document.getElementById("order-data").value = message;
 
-        // Submit the hidden form
+        // Submit form
         document.getElementById("order-form").submit();
 
         // Clear cart
@@ -144,5 +154,4 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCartCount();
         closeCart();
     });
-
 });
